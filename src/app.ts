@@ -5,7 +5,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 
 import { LoggerStream } from './utils/logger'
-import packageJson from '../package.json'
+import { APP_NAME, ROOT_ROUTE_MSG } from './constants/strings'
 
 const app = express()
 
@@ -30,6 +30,6 @@ app.use(
 )
 app.use(bodyParser.json())
 
-app.use('/', (_, res) => res.status(200).send(`Server is running!`))
+app.use('/', (_, res) => res.status(200).send(ROOT_ROUTE_MSG(APP_NAME)))
 
 export default app

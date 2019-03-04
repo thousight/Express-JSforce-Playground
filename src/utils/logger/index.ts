@@ -5,9 +5,10 @@ import {
   transports,
   format,
 } from 'winston'
-const { combine, timestamp, json, colorize, align, printf } = format
 
-const timestampFormat = 'MM/DD/YYYY hh:mm:ss'
+import { LOGGER_TIMESTAMP_FORMAT } from '../../constants/strings'
+
+const { combine, timestamp, json, colorize, align, printf } = format
 
 const options: LoggerOptions = {
   exitOnError: false,
@@ -15,7 +16,7 @@ const options: LoggerOptions = {
     new transports.Console({
       format: combine(
         colorize(),
-        timestamp({ format: timestampFormat }),
+        timestamp({ format: LOGGER_TIMESTAMP_FORMAT }),
         align(),
         printf(
           ({ timestamp: time, level, message }) =>
@@ -27,7 +28,7 @@ const options: LoggerOptions = {
     }),
     new transports.File({
       filename: './logs/all-logs.log',
-      format: combine(timestamp({ format: timestampFormat }), json()),
+      format: combine(timestamp({ format: LOGGER_TIMESTAMP_FORMAT }), json()),
       handleExceptions: true,
       level: 'info',
       maxFiles: 5,
