@@ -1,0 +1,10 @@
+{
+  "extends": ["tslint-config-prettier", "tslint:recommended"],
+  "rules": {
+    "no-console": false,
+    "semicolon": false,
+    "ordered-imports": false,
+    "quotemark": [true, "single"]
+  },
+  "rulesDirectory": ["tslint-plugin-prettier"]
+}
