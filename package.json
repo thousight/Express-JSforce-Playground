@@ -1,6 +1,6 @@
 {
   "name": "express-jsforce-playground",
-  "version": "1.1.0",
+  "version": "0.0.1",
   "description": "A minimal express server starter with TypeScript",
   "main": "server.js",
   "scripts": {
