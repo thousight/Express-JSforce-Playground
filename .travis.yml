@@ -2,7 +2,6 @@ branches:
   only:
     - master
     - /^greenkeeper/.*$/
-  # Don't run CI on tag push
   except:
     - /^v\d+\.\d+\.\d+$/
 language: node_js
@@ -23,8 +22,5 @@ jobs:
       deploy:
         provider: heroku
         app: express-jsforce-playground
-        # Exposing the API key seems to be the only way to get travis to call heroku build API properly
-        # And this is a public key which is only decryptable by Travis so technically it is safe to expose it
-        # Source: https://docs.travis-ci.com/user/encryption-keys/
         api_key:
-          secure: CU1OGNAXPUxwksIwmg++T0kR4J4eXdZn0QKaZ/TjtbVab/9z/uGLUqvFegACYdfPguLxCHgeK9Ci6wDcol+wqEr1yqlYb8bNvKyLqhqN7ciFUWZWE2pUF03zNgDGEcdFjnDuGsB9nGtzh/GoU/R4cj6vtysLWMvWpkjCntW/uNjimAtj5LglKU7vIMUhY5qfcGCBEg7fDsfEPdaAr7Bb/P3T37IA0i/l/5eKNwsB7JLJ3yYw1N0zNObO4KRGjoASWYJI0ItrFeOSLu7XIV0fn3IMaXj9vhMn+FXiDYpnKwgxG/fOHJBFZkQ2Xu983MHpKJMIjQqNz3XR/wVUC5fRMkXTrJOrlDaCiWCEqokujjWvAnajs0XUU67D4m9z7vwDGeaUBWtDnW23CihU8XfsR8rd21msoO5V/TlGnLYU9+qEdy8Rd4CcHs7nIRarF7KgQZaYlrlzND4vTK7HE5OY0+RQk7SuU+0KhCudWPVciWCmeD7U5WGh7UoEiKLlZVVXg8aaAA1NqGQaPjiFHOIGZh6m+5IY6G0tAMFGWCGCZSGdoE+F/A2lU6jXQNm3aMjxs+sEkZOgW+Cw1+Iy5glD08tXJSY6DdNINFZ6TVrBVc5yvcBhjqlidb9Tm9jCzluM00dob3mLN/rhENZZD19ril+6+McrbJZm/JflRQBKjV8=
+          secure: doyBbRd59VccHOvwpivCrX9dMq9MhnqKDieEU1Wl6RkkzqkDopLAhz87SOK7SkutZdFxvYdzJjnslouhjCiOACvRxOhBtjiHFUmVChRkpP97pu4shSCqzUTNFl+aKo795SYJ85+MGhrS/gkIth2hCjVtEEomQN7mSS3TUkMSDGuw5XDJw4mHg0U0P3buJOMuv26NV4XFIbd/JiO1g+XW6Xs3W6NeMNy63xTjWxs4aDj52yaxPZDBTLXFneZiVRoOQrSDS1zhYXUyIAPlSWF4oISuF2ORfJTlS8/pUgzq2royqHIrWYx2PLWkzkWpyaMROl1L6dyTtEzSZmuE9QfdA6WY8GTuUD1JuWuFVFz2nwAm62XU7LV7nObDFIuD4Mx/QmI9YpzeHvwV/yai5WwN9d0Xss9PX35R5iiJBPU/gnhFsvAWxvgCttOdELZIpoJv1LK+ttpGuSFj8nxn5cDOgewQxvZCRlnexwyAnCsTojGjiSXAVFpxLsH/mAVr6FlP5ndPCE734ha5tprsbpRZG8l1lJ7oY2YnLbnl2uB6Gv3wPRk5C8T8IXa1ByKySHfspgljwyEJBE11T9+nz0ubM24CpD2B0x0BTbZY4nQLBn2hDBaxV4qQhrRnPP6ouWOu4H6hCiY0SFtOn+4EzY2wd+Kn5/RT/HhG+QPNYrjTCuw=
