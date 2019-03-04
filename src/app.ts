@@ -30,8 +30,6 @@ app.use(
 )
 app.use(bodyParser.json())
 
-app.use('/', (_, res) =>
-  res.status(200).send(`${packageJson.name} is running!`),
-)
+app.use('/', (_, res) => res.status(200).send(`Server is running!`))
 
 export default app
