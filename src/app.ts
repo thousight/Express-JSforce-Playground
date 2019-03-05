@@ -5,13 +5,14 @@ import morgan from 'morgan'
 import cors from 'cors'
 
 import { LoggerStream } from './utils/logger'
-import { APP_NAME, ROOT_ROUTE_MSG } from './constants/strings'
+import { APP_NAME, ROOT_ROUTE_MSG, CORS_METHODS } from './constants/strings'
+import { OK } from './constants/numbers/serverStatus'
 
 const app = express()
 
 app.use(
   cors({
-    methods: 'POST,GET,OPTIONS',
+    methods: CORS_METHODS,
   }),
 )
 
@@ -30,6 +31,6 @@ app.use(
 )
 app.use(bodyParser.json())
 
-app.use('/', (_, res) => res.status(200).send(ROOT_ROUTE_MSG(APP_NAME)))
+app.use('/', (_, res) => res.status(OK).send(ROOT_ROUTE_MSG(APP_NAME)))
 
 export default app

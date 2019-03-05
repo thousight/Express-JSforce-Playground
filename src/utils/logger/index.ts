@@ -6,7 +6,11 @@ import {
   format,
 } from 'winston'
 
-import { LOGGER_TIMESTAMP_FORMAT } from '../../constants/strings'
+import { LOGGER_TIMESTAMP_FORMAT } from '../../constants/strings/datetime'
+import {
+  LOGGER_MAX_FILE_NUM,
+  LOGGER_MAX_FILE_SIZE,
+} from '../../constants/numbers'
 
 const { combine, timestamp, json, colorize, align, printf } = format
 
@@ -31,8 +35,8 @@ const options: LoggerOptions = {
       format: combine(timestamp({ format: LOGGER_TIMESTAMP_FORMAT }), json()),
       handleExceptions: true,
       level: 'info',
-      maxFiles: 5,
-      maxsize: 5242880, // 5MB
+      maxFiles: LOGGER_MAX_FILE_NUM,
+      maxsize: LOGGER_MAX_FILE_SIZE,
     }),
   ],
 }
