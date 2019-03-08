@@ -6,7 +6,7 @@ branches:
     - /^v\d+\.\d+\.\d+$/
 language: node_js
 node_js:
-  - node
+  - "11.10.1"
 cache:
   directories:
     - '~/.npm'
@@ -17,6 +17,7 @@ jobs:
       script:
         - yarn test:ci
     - stage: deploy
+      if: branch = master AND (NOT type = pull_request)
       before_deploy:
         - yarn semantic-release
       deploy:
